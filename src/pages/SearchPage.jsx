@@ -1,5 +1,5 @@
 import { fetchEventsByName } from '../services/moviesApi';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export const SearchPage = () => {
@@ -35,11 +35,13 @@ export const SearchPage = () => {
         <ul>
           {events.map(({ id, name }) => (
             <li key={id}>
-              <Link>{name}</Link>
+              <Link to={id}>{name}</Link>
             </li>
           ))}
         </ul>
       )}
+
+      <Outlet />
     </>
   );
 };

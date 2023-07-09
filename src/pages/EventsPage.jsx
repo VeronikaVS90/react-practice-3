@@ -14,7 +14,7 @@ export const EventsPage = () => {
       <ul>
         {movies.map(({ id, name }) => (
           <li key={id}>
-            <Link>{name}</Link>
+            <Link to={id}>{name}</Link>
           </li>
         ))}
       </ul>
