@@ -1,20 +1,23 @@
 import { fetchEvents } from '../services/moviesApi';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const EventsPage = () => {
-  const [movies, setMovies] = useState([]);
+  const [events, setEvents] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
-    fetchEvents().then(setMovies);
+    fetchEvents().then(setEvents);
   }, []);
 
   return (
     <>
       <ul>
-        {movies.map(({ id, name }) => (
+        {events.map(({ id, name }) => (
           <li key={id}>
-            <Link to={id}>{name}</Link>
+            <Link to={`${id}`} state={{ from: location }}>
+              {name}
+            </Link>
           </li>
         ))}
       </ul>
