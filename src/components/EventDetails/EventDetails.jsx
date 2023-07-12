@@ -26,9 +26,7 @@ export const EventDetails = () => {
             alt={event.name}
           />
           <h2>{event.name}</h2>
-          {/* <p>Date: {event.dates}</p>
-          <p>Location: {event.location}</p>
-          <p>Promoter: {event.promoters[0].url}</p> */}
+          <p>Information: {event.info ? event.info : 'no data'}</p>
           <p>
             Additional Information:{' '}
             {event.pleaseNote ? event.pleaseNote : 'no data'}
